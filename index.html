@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Recipe Card — Samosa🤤</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <h1 class="title"> Samosa's </h1>
+      <p class="subtitle">Golden Fried Delight with Potato Filling ,Crispy & Spicy Indian Snack✨ in<strong>45 minutes</strong>!</p>
+    </header>
+
+    <main class="card">
+      <section class="media-meta">
+        <figure class="dish">
+          <img src="assets/images.jpg" alt="Yummy Samosa🤤" />
+        </figure>
+        <div class="meta">
+          <div class="meta-item">
+            <span class="meta-label">Prep Time</span>
+            <span class="meta-value"><span id="prepMins">~45</span> mins</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Servings</span>
+            <span class="meta-value" id="servings">8-10 samosas</span>
+          </div>
+          <div class="controls">
+            <button id="toggleIngredients" class="btn">Show Ingredients</button>
+            <button id="toggleSteps" class="btn btn-outline">Show Steps</button>
+            <button id="printBtn" class="btn btn-ghost">🖨 Print</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="collapsible" id="ingredientsSection" aria-hidden="true">
+        <h2>Ingredients</h2>
+        <ul id="ingredientsList" class="ingredients"></ul>
+      </section>
+
+      <section class="collapsible" id="stepsSection" aria-hidden="true">
+        <div class="steps-header">
+          <h2>Steps</h2>
+          <div class="step-controls">
+            <button id="startBtn" class="btn success">Start Cooking</button>
+            <button id="nextBtn" class="btn" disabled>Next</button>
+            <button id="resetBtn" class="btn btn-outline" disabled>Reset</button>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div id="progress" class="progress"></div>
+        </div>
+
+        <ol id="stepsList" class="steps"></ol>
+
+        <div class="timer">
+          <div class="timer-row">
+            <label for="timerInput">Timer (mins):</label>
+            <input id="timerInput" type="number" min="1" step="1" value="45"/>
+            <button id="timerStart" class="btn">Start Timer</button>
+            <button id="timerStop" class="btn btn-outline" disabled>Stop</button>
+          </div>
+          <div id="timerDisplay" class="timer-display">45:00</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with ♥ for animation practice. Try hovering items & resizing the window!</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

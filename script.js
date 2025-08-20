@@ -1,4 +1,3 @@
-// Data
 const ingredients = [
   "2 cups maida (all-purpose flour)",
   "4 tbsp oil (for dough)",
@@ -23,7 +22,6 @@ const steps = [
   "Serve hot with green chutney or ketchup."
 ];
 
-// Elements
 const ingSec = document.getElementById("ingredientsSection");
 const stepsSec = document.getElementById("stepsSection");
 const ingBtn = document.getElementById("toggleIngredients");
@@ -45,7 +43,6 @@ const timerDisplay = document.getElementById("timerDisplay");
 let currentStep = -1;
 let timerId = null, endAt = null;
 
-// Populate lists
 function mountIngredients(){
   ingList.innerHTML = ingredients.map(i => `<li>${i}</li>`).join("");
 }
@@ -55,7 +52,6 @@ function mountSteps(){
 mountIngredients();
 mountSteps();
 
-// Collapsible toggles
 function toggleSection(secEl, btnEl, openLabel, closeLabel){
   const isHidden = secEl.getAttribute("aria-hidden") !== "false";
   secEl.setAttribute("aria-hidden", isHidden ? "false" : "true");
@@ -64,7 +60,6 @@ function toggleSection(secEl, btnEl, openLabel, closeLabel){
 ingBtn.addEventListener("click", ()=> toggleSection(ingSec, ingBtn, "Show Ingredients", "Hide Ingredients"));
 stepsBtn.addEventListener("click", ()=> toggleSection(stepsSec, stepsBtn, "Show Steps", "Hide Steps"));
 
-// Cooking flow
 function updateProgress(){
   const pct = currentStep < 0 ? 0 : ((currentStep+1) / steps.length) * 100;
   progressEl.style.width = `${pct}%`;
@@ -92,7 +87,6 @@ startBtn.addEventListener("click", startCooking);
 nextBtn.addEventListener("click", nextStep);
 resetBtn.addEventListener("click", resetCooking);
 
-// Timer
 function formatTime(ms){
   const total = Math.max(0, Math.floor(ms/1000));
   const m = String(Math.floor(total/60)).padStart(2,"0");
@@ -129,5 +123,4 @@ function stopTimer(){
 timerStart.addEventListener("click", startTimer);
 timerStop.addEventListener("click", stopTimer);
 
-// Print
 printBtn.addEventListener("click", ()=> window.print());
